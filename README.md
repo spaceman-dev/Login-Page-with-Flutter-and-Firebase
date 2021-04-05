@@ -7,12 +7,12 @@
 
 
 ### Login Page
-![Image for Login Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/loginPage.png)
+![Image for Login Page](/images/loginPage.png)
 
 
 ### Registration Page
-![Image for Registration Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/registrationPage.png)
+![Image for Registration Page](/images/registrationPage.png)
 
 
 ### Home Page
-![Image for Home Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/homePage.png)
+![Image for Home Page](/images/homePage.png)
