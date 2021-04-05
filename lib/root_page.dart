@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'auth.dart';
+import 'home_page.dart';
 
 class RootPage extends StatefulWidget {
   RootPage({this.auth});
@@ -16,22 +17,37 @@ enum AuthStatus{
 
 class _RootPageState extends State<RootPage> {
   AuthStatus authStatus = AuthStatus.notSignedIn;
+  @override
+  void initState() {
+// TODO: implement initState
+    super.initState();
+    try {
+      widget.auth.currentUser().then((userId) {
+        setState(() {
+          authStatus = userId == null ? AuthStatus.notSignedIn : AuthStatus.signedIn;
+        });
+      });
+    } catch (e) {}
+  }
   void _signedIn(){
     setState(() {
       authStatus = AuthStatus.signedIn;
     });
   }
+  void _signedOut(){
+    setState(() {
+      authStatus = AuthStatus.notSignedIn;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    authStatus = widget.auth.currentUser() == null ? AuthStatus.notSignedIn : AuthStatus.signedIn;
     switch(authStatus){
       case AuthStatus.notSignedIn:
         return new LoginPage(auth: widget.auth, onSignedIn: _signedIn);
       case AuthStatus.signedIn:
-        return new Scaffold(
-          body: new Container(
-          child: new Text('WELCOME!')
-        )
+        return new HomePage(
+          auth: widget.auth,
+          onSignedOut: _signedOut,
         );
     }
     return new LoginPage(auth: widget.auth);
