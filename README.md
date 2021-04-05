@@ -1,16 +1,18 @@
-# login_test1
+# Flutter Login App
 
-A new Flutter application.
 
-## Getting Started
+- This repository contains the code for a basic login authentication page using Flutter and Firebase
+- [Blog Tutorial]('https://medium.com/coding-with-flutter/take-your-flutter-tests-to-the-next-level-e2fb15641809')
+- [Youtube Tutorial]('https://www.youtube.com/watch?v=u_Lyx8KJWpg&list=PLNnAcB93JKV_NIGSneTazb9yMpILapEjo')
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### Login Page
+![Image for Login Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/loginPage.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Registration Page
+![Image for Registration Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/registrationPage.png)
+
+
+### Home Page
+![Image for Home Page](https://github.com/spaceman-dev/Login-Page-with-Flutter-and-Firebase/tree/master/images/homePage.png)
