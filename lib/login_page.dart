@@ -1,7 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'auth.dart';
 
 class LoginPage extends StatefulWidget {
+  LoginPage({this.auth});
+  final BaseAuth auth;
   @override
   State<StatefulWidget> createState() => new _LoginPageState();
 }
@@ -26,15 +28,22 @@ class _LoginPageState extends State<LoginPage> {
   void validateAndSubmit() async {
     if (validateAndSave()) {
       try {
-        if(_formType == FormType.login){
-        final User user = (await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: _email, password: _password)).user;
-        print('Signed in: ${user.uid}');
-      } else{
-          final User user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password)).user;
-          print('Registered user: ${user.uid}');
+        if (_formType == FormType.login) {
+          String userId = await widget.auth.signInWithEmailAndPassword(_email, _password);
+          // final User user = (await FirebaseAuth.instance
+          //         .signInWithEmailAndPassword(
+          //             email: _email, password: _password))
+          //     .user;
+          print('Signed in: $userId');
+        } else {
+          String userId = await widget.auth.createUserWithEmailAndPassword(_email, _password);
+          // final User user = (await FirebaseAuth.instance
+          //         .createUserWithEmailAndPassword(
+          //             email: _email, password: _password))
+          //     .user;
+          print('Registered user: $userId');
         }
-      }catch (e) {
+      } catch (e) {
         print('Error: $e');
       }
     }
@@ -103,12 +112,11 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: moveToRegister,
         )
       ];
-    }
-    else {
+    } else {
       return [
         new ElevatedButton(
-          child: new Text(
-              'Create an account', style: new TextStyle(fontSize: 20.0)),
+          child: new Text('Create an account',
+              style: new TextStyle(fontSize: 20.0)),
           onPressed: validateAndSubmit,
         ),
         new TextButton(
