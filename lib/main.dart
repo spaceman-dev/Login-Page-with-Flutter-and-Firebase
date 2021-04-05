@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'login_page.dart';
 import 'auth.dart';
+import 'login_page.dart';
+import 'root_page.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: new LoginPage(auth: new Auth()));
+        home: new RootPage(auth: new Auth()));
   }
 }
